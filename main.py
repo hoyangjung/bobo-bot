@@ -1,7 +1,5 @@
 import os
 from highrise import BaseBot
-from highrise.__main__ import BotDefinition
-from asyncio import run as arun
 
 class Bobo(BaseBot):
     async def on_start(self, session_metadata) -> None:
@@ -20,6 +18,3 @@ class Bobo(BaseBot):
             await self.highrise.emote("dance-tiktok", user.id)
         elif msg == "!hug":
             await self.highrise.chat(f"{user.username} gets a big hug from Bobo! 💖")
-
-if __name__ == "__main__":
-    arun(BotDefinition(Bobo, os.getenv("ROOM_ID"), os.getenv("BOT_TOKEN")).run())
